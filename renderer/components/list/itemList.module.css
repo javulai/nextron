@@ -1,0 +1,50 @@
+.container {
+  background-color: #eeffff;
+  height: 1700px;
+  width: 100%;
+  color: black;
+}
+.card {
+  width: 250px;
+  height: 300px;
+  background-color: #d9d9d9;
+  margin: 10px;
+  float: left;
+  transition: 3s;
+}
+.searchBar button {
+  background-color: #2286c3;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  width: 100px;
+  border-width: 1px;
+  box-shadow: 2px 2px 5px lightblue;
+}
+.searchBar input {
+  height: 35px;
+  width: 400px;
+  background-color: FFFFFF;
+  margin: 20px;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+  box-shadow: 2px 2px 5px lightblue;
+}
+.filterButton {
+  background-color: #2286c3;
+  color: white;
+  padding: 6px;
+  border-radius: 10px;
+  width: 100px;
+  border-width: 1px;
+  box-shadow: 2px 2px 5px lightblue;
+  text-align: center;
+}
+.items {
+  margin: 60px;
+}
+.suuldnemegdsen {
+  float: right;
+  margin-right: 50px;
+}

@@ -3,6 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { Router, useRouter } from "next/router";
+
 function Reg() {
   const handleClick1 = (e) => {
     e.preventDefault();
@@ -12,6 +13,7 @@ function Reg() {
       console.log("ALDAAAAAAAAAAAAAAAAAA");
     }
   };
+
   const [ner, setNer] = useState("");
   const [ovog, setOvog] = useState("");
   const [pass, setPass] = useState("");

@@ -12,7 +12,7 @@ function Login() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    router.push("/profile");
+    router.push("/Reg");
   };
 
   return (
