@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 function Home() {
   const router = useRouter();
-  router.push("/Login");
+  typeof window !== "undefined" && router.push("/Login");
   return (
     <div className="body">
       <Head>

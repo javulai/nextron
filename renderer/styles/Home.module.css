@@ -4,10 +4,10 @@
 }
 .container {
   width: 300px;
-  height: 300px;
+  height: 100%;
   background-color: #8aacc8;
   text-align: center;
-  transform: translateY(50%);
+  margin-top: 50px;
   margin-left: 40%;
 
   border-radius: 10px;
@@ -70,4 +70,38 @@
 .logo img {
   padding-top: 5px;
   margin-left: 5px;
+}
+.genderr {
+  color: white;
+}
+.date input {
+  color: black;
+}
+.navbar {
+  margin-top: 0px;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-color: #2286c3;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.navlogo {
+  margin: 20px;
+}
+.navHome {
+  margin: 20px;
+}
+.userNamepnum {
+  margin: 20px;
+  margin-left: auto;
+}
+.navbutton {
+  margin: 20px;
+  background-color: #64b5f6;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
 }

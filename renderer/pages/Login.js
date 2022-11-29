@@ -9,10 +9,12 @@ function Login() {
   console.log(user);
   console.log(pass);
   const router = useRouter();
+
   const handleClick = (e) => {
     e.preventDefault();
-    router.push("/Reg");
+    router.push("/profile");
   };
+
   return (
     <div className="body">
       <Head>
