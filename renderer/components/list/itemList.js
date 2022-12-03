@@ -1,6 +1,12 @@
 import Card from "./Card";
 import styles from "./itemList.module.css";
+import { useRouter } from "next/router";
 const ItemList = () => {
+  const router = useRouter();
+  const handleClick = (e) => {
+    e.preventDefault();
+    router.push("/profile");
+  };
   return (
     <div className={styles.container}>
       <div className={styles.searchBar}>
@@ -15,7 +21,7 @@ const ItemList = () => {
       <a href="#" className={styles.suuldnemegdsen}>
         Сүүлд нэмэгдсэн
       </a>
-      <div className={styles.items}>
+      <div onClick={handleClick} className={styles.items}>
         <Card />
         <Card />
         <Card />
