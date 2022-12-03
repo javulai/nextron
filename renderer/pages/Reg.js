@@ -7,9 +7,11 @@ import { auth } from "../../firebase/firebase";
 import { async } from "@firebase/util";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app } from "../../firebase/firebase";
-// import { getDatabase, ref, set } from "firebase/database";
-import firebase from "../../firebase/initFirebase";
-import "firebase/firestore";
+// import { collection, doc, addDoc } from "firebase/firestore";
+// import firebase from "../../firebase/firebase";
+// import firebase from "firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 function Reg() {
   const [ner, setNer] = useState("");
   const [ovog, setOvog] = useState("");
@@ -22,7 +24,7 @@ function Reg() {
   const [month, setMonth] = useState("");
   const [address, setAddress] = useState("");
   const router = useRouter();
-  // const db = getDatabase();
+  // const db = firebase.firestore();
   function writeUserData(
     ner,
     ovog,
@@ -55,6 +57,60 @@ function Reg() {
   const handleClick1 = async (e) => {
     e.preventDefault();
     if (validation() == true) {
+      try {
+        // const docRef = addDoc(collection(db, "users"), {
+        //   firstname: ner,
+        //   lastname: ovog,
+        //   phone_number: pnum,
+        //   email: email,
+        //   gender: gender,
+        //   BirthYear: year,
+        //   BirthDay: day,
+        //   BirthMonth: month,
+        //   Address: address,
+        // });
+        // console.log("Document written with ID: ", docRef.id);
+        // firebase.firestore().collection("users").doc("user").set({
+        // });
+        //   db.collection("users")
+        //     .add({
+        //       firstname: ner,
+        //       lastname: ovog,
+        //       phone_number: pnum,
+        //       email: email,
+        //       gender: gender,
+        //       BirthYear: year,
+        //       BirthDay: day,
+        //       BirthMonth: month,
+        //       Address: address,
+        //     })
+        //     .then((docRef) => {
+        //       const docId = docRef.id;
+        //       console.log(docId);
+        //     })
+        //     .catch((err) => {
+        //       console.log("dotor" + err);
+        //     });
+        try {
+          const docRef = await addDoc(collection(db, "users"), {
+            firstname: ner,
+            lastname: ovog,
+            phone_number: pnum,
+            email: email,
+            gender: gender,
+            BirthYear: year,
+            BirthDay: day,
+            BirthMonth: month,
+            Address: address,
+          });
+          // console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+        }
+      } catch (error) {
+        console.log(error);
+        alert(error);
+      }
       createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           // Signed in
@@ -62,33 +118,6 @@ function Reg() {
           // ...
           console.log(user);
           alert("success");
-          // writeUserData(
-          //   ner,
-          //   ovog,
-          //   pnum,
-          //   email,
-          //   gender,
-          //   year,
-          //   day,
-          //   month,
-          //   address
-          // );
-          try {
-            firebase.firestore().collection("users").doc("user").set({
-              firstname: ner,
-              lastname: ovog,
-              phone_number: pnum,
-              email: email,
-              gender: gender,
-              BirthYear: year,
-              BirthDay: day,
-              BirthMonth: month,
-              Address: address,
-            });
-          } catch (error) {
-            console.log(error);
-            alert(error);
-          }
 
           router.push("/Login");
         })
