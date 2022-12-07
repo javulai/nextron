@@ -23,7 +23,10 @@ function Login() {
         // Signed in
         const user = userCredential.user;
         alert("success login");
-        // ...
+        localStorage.setItem('accessToken', user.accessToken);
+        // const token = localStorage.getItem('accessToken');
+        // localStorage.removeItem('accessToken')
+        console.log(user);
         router.push("/next");
       })
       .catch((error) => {
